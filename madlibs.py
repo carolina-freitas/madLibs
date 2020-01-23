@@ -46,12 +46,14 @@ def greet_person():
 def show_madlib_form():
     """ Madlib game """
 
-    # how to get the answer from the compliment form?
-    if answer == "no":
-        return render_template("goodbye.html")
-    else:
-        return render_template("game.html")    
+    # need to get answer from the compliment.html file. 
+    # as an example, name is the key, value is the value
+    to_play = request.args.get("answer")
 
+    if to_play == "no":
+        return render_template("goodbye.html")
+    if to_play == "yes":
+        return render_template("game.html") 
 
 
 if __name__ == '__main__':
